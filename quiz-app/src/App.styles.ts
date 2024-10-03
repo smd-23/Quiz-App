@@ -17,6 +17,14 @@ export const GlobalStyle = createGlobalStyle`
     background-size: cover;
   }
 
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -350px; /* Move the content slightly upward */
+  }
+
   * {
     box-sizing: border-box;
     font-family: 'Catamaran', sans-serif;
