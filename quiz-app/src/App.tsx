@@ -1,17 +1,16 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import QuestionCard from "./components/QuestionCard";
 import { Difficulty, fetchQuizQuestions, QuestionState } from "./API";
+import { GlobalStyle } from "./App.styles";
 
-type AnswerObject = {
+export type AnswerObject = {
   question: string;
   answer: string;
   correct: boolean;
   correctAnswer: string;
 };
 
-// Total number of questions
 const TOTAL_QUESTIONS = 10;
-
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
@@ -72,39 +71,42 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <h1>REACT QUIZ</h1>
+    <>
+      <GlobalStyle />
+      <div className="App">
+        <h1>REACT QUIZ</h1>
 
-      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-        <button className="start" onClick={startTrivia}>
-          Start
-        </button>
-      ) : null}
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <button className="start" onClick={startTrivia}>
+            Start
+          </button>
+        ) : null}
 
-      {!gameOver ? <p className="score">Score: {score}</p> : null}
+        {!gameOver ? <p className="score">Score: {score}</p> : null}
 
-      {loading ? <p>Loading Questions...</p> : null}
+        {loading ? <p>Loading Questions...</p> : null}
 
-      {!loading && !gameOver && (
-        <QuestionCard
-          questionNr={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number]?.question || ""}
-          answers={questions[number]?.answers || []}
-          userAnswer={userAnswers ? userAnswers[number] : undefined}
-          callback={checkAnswer}
-        />
-      )}
+        {!loading && !gameOver && (
+          <QuestionCard
+            questionNr={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number]?.question || ""}
+            answers={questions[number]?.answers || []}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          />
+        )}
 
-      {!gameOver &&
-      !loading &&
-      userAnswers.length === number + 1 &&
-      number !== TOTAL_QUESTIONS - 1 ? (
-        <button className="next" onClick={nextQuestion}>
-          Next Question
-        </button>
-      ) : null}
-    </div>
+        {!gameOver &&
+        !loading &&
+        userAnswers.length === number + 1 &&
+        number !== TOTAL_QUESTIONS - 1 ? (
+          <button className="next" onClick={nextQuestion}>
+            Next Question
+          </button>
+        ) : null}
+      </div>
+    </>
   );
 };
 

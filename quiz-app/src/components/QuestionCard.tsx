@@ -1,10 +1,12 @@
 import React from "react";
+import { AnswerObject } from "../App";
+import ButtonWrapper from "./QuestionCard.styles";
 
 type Props = {
   question: string;
-  answers: string[]; // Changed to plural to match the map function
-  callback: (e: React.MouseEvent<HTMLButtonElement>, answer: string) => void; // Updated type to handle the callback correctly
-  userAnswer: any; // Allows null to indicate no answer selected
+  answers: string[];
+  callback: (e: React.MouseEvent<HTMLButtonElement>, answer: string) => void;
+  userAnswer: AnswerObject | undefined;
   questionNr: number;
   totalQuestions: number;
 };
@@ -21,17 +23,16 @@ const QuestionCard: React.FC<Props> = ({
     <p className="number">
       Question: {questionNr} / {totalQuestions}
     </p>
-    <p dangerouslySetInnerHTML={{ __html: question }} /> {/* Closed p tag */}
+    <p dangerouslySetInnerHTML={{ __html: question }} />
     <div>
       {answers.map((answer) => (
-        <div key={answer}>
-          <button
-            disabled={!!userAnswer} // Disable if user has selected an answer
-            onClick={(e) => callback(e, answer)} // Pass the answer to the callback
-          >
+        <ButtonWrapper key={answer}>
+          {" "}
+          {/* Use ButtonWrapper component */}
+          <button disabled={!!userAnswer} onClick={(e) => callback(e, answer)}>
             <span dangerouslySetInnerHTML={{ __html: answer }} />
           </button>
-        </div>
+        </ButtonWrapper>
       ))}
     </div>
   </div>

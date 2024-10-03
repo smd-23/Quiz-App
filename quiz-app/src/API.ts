@@ -26,14 +26,12 @@ export const fetchQuizQuestions = async (
   try {
     const response = await fetch(endpoint);
 
-    // Check if response is OK
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
 
-    // Ensure data exists and contains results
     if (!data || !data.results) {
       throw new Error("No quiz data available.");
     }
