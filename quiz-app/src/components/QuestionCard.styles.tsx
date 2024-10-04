@@ -8,19 +8,16 @@ type ButtonWrapperProps = {
 };
 
 export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
-  max-width: 110px;
-  background: #ebfeff;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-
-  .button {
-    margin: 0 10px;
-  }
+  margin-bottom: 10px;
 
   p {
     font-size: 1rem;
@@ -29,9 +26,13 @@ export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
   button {
     cursor: pointer;
     user-select: none;
-    font-size: 0.8rem;
-    width: 40px;
+    font-size: 0.85rem;
+    width: auto;
+    min-width: 120px;
+    max-width: 100%;
+    height: auto;
     margin: 5px 0;
+    padding: 10px 20px;
     background: ${({ correct, userClicked }) =>
       correct
         ? "linear-gradient(90deg, #56ff6b, #59bc86)"
@@ -39,11 +40,14 @@ export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
         ? "linear-gradient(90deg, #ff5656, #c16868)"
         : "linear-gradient(90deg, #56ccff, #6eafb4)"};
     border: 3px solid #fff;
-    color: #fff;
+    color: #fff; /* Make answer text black */
+    font-weight: normal; /* Keep answers normal weight (not bold) */
     box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    height: 40px;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
   }
 `;
 

@@ -32,7 +32,11 @@ const QuestionCard: React.FC<Props> = ({
           correct={userAnswer?.correctAnswer === answer}
           userClicked={userAnswer?.answer === answer}
         >
-          <button disabled={!!userAnswer} onClick={(e) => callback(e, answer)}>
+          <button
+            disabled={!!userAnswer}
+            value={answer} // Add the value attribute here
+            onClick={(e) => callback(e, answer)}
+          >
             <span dangerouslySetInnerHTML={{ __html: answer }} />
           </button>
         </ButtonWrapper>

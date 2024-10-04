@@ -5,7 +5,7 @@ export type Question = {
   correct_answer: string;
   difficulty: string;
   incorrect_answers: string[];
-  question: string; // Corrected typo here
+  question: string;
   type: string;
 };
 

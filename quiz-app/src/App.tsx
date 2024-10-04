@@ -105,6 +105,9 @@ const App: React.FC = () => {
             Next Question
           </button>
         ) : null}
+        {gameOver && userAnswers.length === TOTAL_QUESTIONS ? (
+          <p className="final-score">Final Score: {score}</p>
+        ) : null}
       </Wrapper>
     </>
   );

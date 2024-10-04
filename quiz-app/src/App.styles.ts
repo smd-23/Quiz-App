@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BGImage from "./images/car.jpg";
+import BGImage from "./images/black.jpg";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -8,13 +8,14 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Change align-items to flex-start to move up */
+    align-items: center; /* Center elements vertically */
     height: 100%;
     background-image: url(${BGImage});
     background-size: cover;
+    background-position: center;
   }
 
   .App {
@@ -22,7 +23,21 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: -150px; /* Adjust this value to move the App further up */
+    margin-top: 50px;
+  }
+
+  .question {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: black; /* Set question text to black */
+    font-weight: bold; /* Make it bold */
+  }
+
+  .score,
+  .header {
+    color: black; /* Ensure all other header elements are black */
+    font-weight: bold; /* Make them bold */
   }
 
   * {
@@ -30,7 +45,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Catamaran', sans-serif;
   }
 `;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +52,7 @@ export const Wrapper = styled.div`
 
   > p {
     color: #fff;
+    font-weight: bold;
   }
 
   .score {
@@ -47,6 +62,7 @@ export const Wrapper = styled.div`
   }
 
   h1 {
+    margin-top: -100px;
     font-family: "Fascinate Inline", Haettenschweiler, "Arial Narrow Bold",
       sans-serif;
     background-image: linear-gradient(180deg, #fff, #87f1ff);
@@ -56,7 +72,7 @@ export const Wrapper = styled.div`
     -webkit-text-fill-color: transparent;
     color: transparent;
     filter: drop-shadow(2px 2px #0085a3);
-    font-size: 70px;
+    font-size: 80px;
     text-align: center;
     margin: 20px;
   }
@@ -74,6 +90,6 @@ export const Wrapper = styled.div`
   }
 
   .start {
-    max-width: 200px;
+    max-width: 500px;
   }
 `;
