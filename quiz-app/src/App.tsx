@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 import QuestionCard from "./components/QuestionCard";
 import { Difficulty, fetchQuizQuestions, QuestionState } from "./API";
 import { GlobalStyle, Wrapper } from "./App.styles";
