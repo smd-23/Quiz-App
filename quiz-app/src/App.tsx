@@ -11,6 +11,7 @@ export type AnswerObject = {
 };
 
 const TOTAL_QUESTIONS = 10;
+
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
@@ -18,13 +19,6 @@ const App: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-
-  useEffect(() => {
-    console.log(
-      "Questions fetched",
-      fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY)
-    );
-  }, []);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -78,14 +72,11 @@ const App: React.FC = () => {
 
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className="start" onClick={startTrivia}>
-            Start
+            {gameOver ? "Start" : "Start Again"}
           </button>
         ) : null}
-
         {!gameOver ? <p className="score">Score: {score}</p> : null}
-
         {loading ? <p>Loading Questions...</p> : null}
-
         {!loading && !gameOver && (
           <QuestionCard
             questionNr={number + 1}
@@ -105,8 +96,16 @@ const App: React.FC = () => {
             Next Question
           </button>
         ) : null}
+
         {gameOver && userAnswers.length === TOTAL_QUESTIONS ? (
-          <p className="final-score">Final Score: {score}</p>
+          <div>
+            <p className="final-score" style={{ fontSize: "3rem" }}>
+              Final Score: {score}
+            </p>
+            <button className="start" onClick={startTrivia}>
+              Start Again
+            </button>
+          </div>
         ) : null}
       </Wrapper>
     </>

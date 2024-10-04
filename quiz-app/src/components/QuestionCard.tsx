@@ -34,7 +34,7 @@ const QuestionCard: React.FC<Props> = ({
         >
           <button
             disabled={!!userAnswer}
-            value={answer} // Add the value attribute here
+            value={answer}
             onClick={(e) => callback(e, answer)}
           >
             <span dangerouslySetInnerHTML={{ __html: answer }} />

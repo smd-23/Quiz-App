@@ -9,12 +9,11 @@ type ButtonWrapperProps = {
 
 export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
   max-width: 100%;
-  background: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   margin-bottom: 10px;
@@ -26,9 +25,9 @@ export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
   button {
     cursor: pointer;
     user-select: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
     width: auto;
-    min-width: 120px;
+    min-width: 150px;
     max-width: 100%;
     height: auto;
     margin: 5px 0;
@@ -41,7 +40,7 @@ export const StyledButtonWrapper = styled.div<ButtonWrapperProps>`
         : "linear-gradient(90deg, #56ccff, #6eafb4)"};
     border: 3px solid #fff;
     color: #fff; /* Make answer text black */
-    font-weight: normal; /* Keep answers normal weight (not bold) */
+    font-weight: bold; /* Keep answers normal weight (not bold) */
     box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
