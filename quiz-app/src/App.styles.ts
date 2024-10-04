@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import BGImage from "./images/black.jpg";
 
 export const GlobalStyle = createGlobalStyle`
@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     background-size: cover;
     background-position: center;
   }
+    
 
   .App {
     display: flex;
@@ -45,7 +46,19 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Catamaran', sans-serif;
   }
 `;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const Wrapper = styled.div`
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Smooth transition for layout changes */
+  animation: ${fadeIn} 0.5s ease; /* Fade-in animation on mount */
+
   display: flex;
   flex-direction: column;
   align-items: center;
